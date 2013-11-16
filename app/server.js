@@ -10,7 +10,8 @@ exports.start = function() {
   require('./config').load(app);
 
   _.map([
-    'home'
+    'home',
+    'login'
   //'anotherController'
   ], function (controllerName) {
     var controller = require('./controllers/' + controllerName);

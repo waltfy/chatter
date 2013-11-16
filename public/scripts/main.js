@@ -37,6 +37,18 @@ goinstant.connect(url, function (err, connection, lobby) {
       throw err;
     }
     console.log('The chosen color is ' + color);
+
+  var name = lobby.key('name');
+            var el = $('input[name="name"]');
+
+  // The listener will be invoked every time the value of name is changed
+  // by another user
+  name.on('set', function(value, context) {
+    el.val(value);
+  });
+
+  el.on('keyup', function() {
+    name.set($(this).val());
   });
 
   /*jshint unused:false*/ // Remove once you're doing something with lobby!

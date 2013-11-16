@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}Chatter — Login{% endblock %}
+
+{% block head %}
+  {% parent %}
+{% endblock %}
+
+{% block content %}
+  <div>
+  	<h1>Welcome to Chatter! <span class='glyphicon glyphicon-heart'></span></h1>
+  	<p class='lead'>A simple real-time IM that allows you to communicate with the world.</p>
+  	<p>Simply choose a nickname and get chatting, it's that simple!</p>
+    <form>
+      <fieldset>
+			  <label>
+			    Choose a nickname:
+			  </label>
+			  <div class="input-group">
+		      <input type="text" class="form-control" name='nick' id='nick'>
+		      <span class="input-group-btn">
+		        <button class="btn btn-primary" type="button">Chatter!</button>
+		      </span>
+		    </div>
+			</fieldset>
+    </form>
+  </div>
+{% endblock %}

@@ -1,9 +1,7 @@
-
-
-exports.setup = function(app) {
+exports.setup = function (app) {
   var home = new HomeController();
 
-  app.get('/', home.index);
+  app.get('/home', home.index);
 };
 
 function HomeController() {
