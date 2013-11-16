@@ -41,6 +41,17 @@ goinstant.connect(url, function (err, connection, lobby) {
     return;
   }
 
+  var userKey = lobby.self();
+
+  // Now use that key to retrieve the current users data
+  var userData = userKey.get(function(err, value, self) {
+    if (err) {
+      // could not retrieve user data
+      throw err;
+    }
+    console.log(self);
+  });
+
   giStatus.connected(true);
 
   var userList = new goinstant.widgets.UserList({
@@ -64,16 +75,16 @@ goinstant.connect(url, function (err, connection, lobby) {
     console.log('The chosen color is ' + color);
   });
 
-  var name = lobby.key('name');
-            var el = $('input[name="name"]');
+  var name = lobby.key('name'),
+      send = $('#send'),
+      chatEl = $('#test'),
+      messageEl = $('#message');
 
-  // The listener will be invoked every time the value of name is changed
-  // by another user
-  name.on('set', function(value, context) {
-    el.val(value);
+  name.on("set", function (value, context) {
+    messageEl.val(value);
   });
 
-  el.on('keyup', function() {
+  messageEl.on('keyup', function() {
     name.set($(this).val());
   });
 

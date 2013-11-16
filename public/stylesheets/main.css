@@ -6,9 +6,13 @@ li {
   overflow: hidden;
 }
 
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
 .app {
   margin-top: 50px;
-  padding: 0 0.625em 0;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -17,15 +21,31 @@ li {
 }
 
 .chat {
-  min-height: 500px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
+  padding: 0 0 0 0.625em;
+  overflow: scroll;
+  position: fixed;
+  top: 101px;
+  bottom: 34px;
   right: 0;
   left: 0;
+  z-index: 50;
+}
+
+.rooms {
+  padding: 0.625em 0.625em 0 ;
+  width: 100%;
+  background-color: hsl(100, 50%, 95%);
+  position: fixed;
+  z-index: 100;
 }
 
 .sendMessages {
-  position: absolute;
-  bottom: 0;
+  width: 100%;
+  position: absolute !important;
+  bottom: 0  !important;
+  z-index: 100;
+}
+
+.sendMessages input {
+  background-color: white;
 }
