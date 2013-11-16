@@ -19,7 +19,7 @@ function createJwtForUser(id, displayname){
 	}
 
   var claims = {
-    iss: 'Chatter',
+    iss: 'chatter',
     sub: id,
     iat: Math.floor(Date.now()/1000),
     dn: displayname

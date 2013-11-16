@@ -16,9 +16,10 @@
     <div class="row app">
       {% block content %}{% endblock %}
     </div>
-    {% block scripts %}{% endblock %}
 
     <!-- Scripts -->
     <script src="http://localhost:35729/livereload.js"></script>
+    <script src="components/jquery/jquery.min.js"></script>
+    {% block scripts %}{% endblock %}
   </body>
 </html>
