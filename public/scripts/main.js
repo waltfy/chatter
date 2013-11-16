@@ -37,6 +37,7 @@ goinstant.connect(url, function (err, connection, lobby) {
       throw err;
     }
     console.log('The chosen color is ' + color);
+  });
 
   var name = lobby.key('name');
             var el = $('input[name="name"]');
