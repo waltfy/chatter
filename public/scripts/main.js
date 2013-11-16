@@ -59,15 +59,17 @@ goinstant.connect(url, function (err, connection, lobby) {
 
   var name = lobby.key('name'),
       send = $('#send'),
-      chatEl = $('#test'),
+      chatEl = $('.chat'),
       messageEl = $('#message');
 
   name.on("set", function (value, context) {
-    messageEl.val(value);
+    chatEl.html(value);
   });
 
-  messageEl.on('keyup', function() {
-    name.set($(this).val());
+  send.on('click', function() {
+    chatEl.append('<p>' + messageEl.val() + '</p>');
+    // console.log(chatEl.html());
+    name.set(chatEl.html());
   });
 
   /*jshint unused:false*/ // Remove once you're doing something with lobby!
