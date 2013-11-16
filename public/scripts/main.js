@@ -18,5 +18,26 @@ goinstant.connect(url, function (err, connection, lobby) {
 
   giStatus.connected(true);
 
+  var userList = new goinstant.widgets.UserList({
+    room: lobby,
+    collapsed: false,
+    position: 'right'
+  });
+
+  userList.initialize(function(err) {
+    if (err) {
+      throw err;
+    }
+  });
+
+  var userColors = new goinstant.widgets.UserColors({ room: lobby });
+
+  userColors.choose(function(err, color) {
+    if (err) {
+      throw err;
+    }
+    console.log('The chosen color is ' + color);
+  });
+
   /*jshint unused:false*/ // Remove once you're doing something with lobby!
 });
