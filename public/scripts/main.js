@@ -8,6 +8,7 @@
 var giStatus = require('./gi_status');
 
 var url = 'https://goinstant.net/adamflax/chatter';
+var userData;
 
 goinstant.connect(url, function (err, connection, lobby) {
   if (err) {
@@ -16,15 +17,12 @@ goinstant.connect(url, function (err, connection, lobby) {
     return;
   }
 
-  var userKey = lobby.self();
-
-  // Now use that key to retrieve the current users data
-  var userData = userKey.get(function(err, value, self) {
-    if (err) {
-      // could not retrieve user data
-      throw err;
-    }
-    console.log(self);
+  $(document).ready(function(){
+      var userKey = lobby.self();
+      userKey.get(function(err, value, context){
+        if(err) throw err;
+        userData = value;
+      });
   });
 
   giStatus.connected(true);
@@ -67,7 +65,7 @@ goinstant.connect(url, function (err, connection, lobby) {
   });
 
   send.on('click', function() {
-    chatEl.append('<p>' + messageEl.val() + '</p>');
+    chatEl.append('<p>' + userData.displayName + ': ' + messageEl.val() + '</p>');
     // console.log(chatEl.html());
     name.set(chatEl.html());
   });
