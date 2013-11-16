@@ -49,3 +49,7 @@ li {
 .sendMessages input {
   background-color: white;
 }
+
+.timestamp {
+  color: hsl(0, 0%, 75%);
+}

@@ -33,7 +33,7 @@ goinstant.connect(url, function (err, connection, lobby) {
     position: 'right',
     truncateLength: 24,
     avatars: false,
-    userOptions: false
+    userOptions: true
   });
 
   userList.initialize(function(err) {
@@ -65,8 +65,8 @@ goinstant.connect(url, function (err, connection, lobby) {
   });
 
   send.on('click', function() {
-    chatEl.append('<p>' + userData.displayName + ': ' + messageEl.val() + '</p>');
-    // console.log(chatEl.html());
+    chatEl.append('<p><small>' + moment().format('h:mm:ss') + '</small> ' + userData.displayName + ' ' + messageEl.val() + '</p>');
+    messageEl.val("");
     name.set(chatEl.html());
     messageEl.val("");
   });
