@@ -4,7 +4,6 @@ var express = require('express');
 var path = require('path');
 var url = require('url');
 var swig = require('swig');
-
 var config = exports; exports.constructor = function() {};
 
 config.load = function(app) {
@@ -16,7 +15,7 @@ config.load = function(app) {
   app.set('view engine', 'html');
   app.set('views', path.join(__dirname,'views'));
   app.set('view cache', false);
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || 9001);
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());

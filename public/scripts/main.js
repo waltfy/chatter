@@ -69,6 +69,31 @@ goinstant.connect(url, function (err, connection, lobby) {
     messageEl.val("");
     name.set(chatEl.html());
     messageEl.val("");
+
+
+
+  //lets generate a jws token for the user
+	if(configData === null){
+		console.log("no config found!");
+	}
+
+	var key = new Buffer(configData['secret'], 'base64'); // convert to binary
+
+	exports.createJwtForUser = function(user) {
+		var claims = {
+		  iss: 'Chatter',
+		  sub: user.id,
+		  iat: Math.floor(Date.now()/1000),
+		  dn: user.displayName
+		};
+
+		return jwtSimple.encode(claims, key); // claims automatically JSON encoded
+	};
+
+  // The listener will be invoked every time the value of name is changed
+  // by another user
+  name.on('set', function(value, context) {
+    el.val(value);
   });
 
   messageEl.keypress(function (e) {

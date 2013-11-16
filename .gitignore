@@ -1,4 +1,10 @@
 bower_components/
 node_modules/
 temp/
+<<<<<<< Updated upstream
 public/build/build.js
+config.txt
+
+=======
+config.txt
+>>>>>>> Stashed changes

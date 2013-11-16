@@ -4,6 +4,21 @@
 
 {% block head %}
   {% parent %}
+  <script>
+  function onSubmit(){
+		$.ajax({
+						type: "POST",
+						url: "/login",
+						data: {"username" : document.getElementById('nick').value},
+						dataType: "text"
+					}).success(function(data){
+						window.location = "/home";
+    }).error(function(data) {
+			window.location = "/home";
+    });
+  }
+
+  </script>
 {% endblock %}
 
 {% block content %}
@@ -19,7 +34,7 @@
 			  <div class="input-group">
 		      <input type="text" class="form-control" name='nick' id='nick'>
 		      <span class="input-group-btn">
-		        <button class="btn btn-primary" type="button">Chatter!</button>
+		        <button class="btn btn-primary" type="button" onclick="onSubmit()">Chatter!</button>
 		      </span>
 		    </div>
 			</fieldset>
