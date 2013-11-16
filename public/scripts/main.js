@@ -68,6 +68,14 @@ goinstant.connect(url, function (err, connection, lobby) {
     chatEl.append('<p>' + userData.displayName + ': ' + messageEl.val() + '</p>');
     // console.log(chatEl.html());
     name.set(chatEl.html());
+    messageEl.val("");
+  });
+
+  messageEl.keypress(function (e) {
+      if (e.which == 13) {
+        send.click();
+        return false;
+      }
   });
 
   /*jshint unused:false*/ // Remove once you're doing something with lobby!
