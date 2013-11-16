@@ -32,13 +32,20 @@ goinstant.connect(url, function (err, connection, lobby) {
   var userList = new goinstant.widgets.UserList({
     room: lobby,
     collapsed: false,
-    position: 'right'
+    position: 'right',
+    truncateLength: 24,
+    avatars: false,
+    userOptions: false
   });
 
   userList.initialize(function(err) {
     if (err) {
       throw err;
     }
+    $( ".gi-collapse" ).remove();
+    $(".gi-user").click(function(){
+      alert("id: " + $(this).attr("data-goinstant-id") +  " name: " + $(this).attr("title"));
+    });
   });
 
   var userColors = new goinstant.widgets.UserColors({ room: lobby });
