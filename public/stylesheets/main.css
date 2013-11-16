@@ -1,0 +1,31 @@
+.navbar {
+  margin-bottom: 0px;
+}
+
+li {
+  overflow: hidden;
+}
+
+.app {
+  margin-top: 50px;
+  padding: 0 0.625em 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.chat {
+  min-height: 500px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.sendMessages {
+  position: absolute;
+  bottom: 0;
+}

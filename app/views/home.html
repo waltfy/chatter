@@ -7,11 +7,24 @@
 {% endblock %}
 
 {% block content %}
-  <div>
-    <form action="#">
-      <input type="text" name="name" id="sync" />
-    </form>
-  </div>
+	  <div class="col-md-9">
+	  	<div class='row rooms'>
+	  		<ul class="nav nav-tabs">
+				  <li class="active"><a href="#">Global <span class="badge">42</span></a></li>
+				</ul>
+	  	</div>
+	  	<div class='chat'>
+	  	</div>
+	  </div>
+	  <div class="col-md-3 sidebar">
+
+	  </div>
+	  <div class="input-group sendMessages">
+		      <input type="text" class="form-control" name='nick' id='nick'>
+		      <span class="input-group-btn">
+		        <button class="btn btn-success" type="button">Send <span class='glyphicon glyphicon-send'></span></button>
+		      </span>
+	    	</div>
 {% endblock %}
 
 {% block scripts %}
