@@ -2511,8 +2511,5 @@ goinstant.connect(url, function (err, connection, lobby) {
 });
 
 },{"./gi_status":2,"__browserify_Buffer":1}]},{},[3])
-<<<<<<< Updated upstream
 ;
-=======
 ;
->>>>>>> Stashed changes
